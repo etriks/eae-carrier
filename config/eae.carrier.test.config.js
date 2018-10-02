@@ -5,5 +5,8 @@ module.exports = {
 	enableCors: true,
     swiftURL: 'http://swift:8080',
     swiftUsername: 'test:tester',
-    swiftPassword: 'testing'
+    swiftPassword: 'testing',
+    eaeUsername: 'eaeUsername',
+    eaeCarrierCollection: 'eae_carrier',  //for carrier controller
+    eaeGlobalStatusCollection: 'eae_global_status'  //for status controller
 };

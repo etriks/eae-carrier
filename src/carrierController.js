@@ -1,6 +1,7 @@
 const { ErrorHelper } = require('eae-utils');
 const FileCarrier = require('./fileCarrier.js');
 const ObjectStorage = require('./objectStorage.js');
+const config = require('../config/eae.carrier.config.js');
 
 /**
  * @fn CarrierController
@@ -38,7 +39,7 @@ CarrierController.prototype.executeUpload = function (req, res) {
     let _this = this;
     let jobID = req.body.jobID;
     let fileName = req.body.fileName;
-    let eaeUsername = req.body.eaeUsername;
+    let eaeUsername = req.body[config.eaeUsername];
 
     try {
         if (eaeUsername === null || eaeUsername === undefined) {
@@ -100,7 +101,7 @@ CarrierController.prototype.executeDownload = function (req, res) {
     let _this = this;
     let jobID = req.body.jobID;
     let fileName = req.body.fileName;
-    let eaeUsername = req.body.eaeUsername;
+    let eaeUsername = req.body[config.eaeUsername];
 
     try {
         if (eaeUsername === null || eaeUsername === undefined) {

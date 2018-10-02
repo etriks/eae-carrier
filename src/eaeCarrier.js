@@ -133,7 +133,7 @@ EaeCarrier.prototype._setupStatusController = function () {
         version: package_json.version
     };
     _this.status_helper = new StatusHelper(Constants.EAE_SERVICE_TYPE_CARRIER, global.eae_carrier_config.port, null, statusOpts);
-    _this.status_helper.setCollection(_this.db.collection(Constants.EAE_COLLECTION_STATUS));
+    _this.status_helper.setCollection(_this.db.collection(_this.config.eaeGlobalStatusCollection));
 
     _this.statusController = new StatusController(_this.status_helper);
     _this.app.get('/status', _this.statusController.getStatus); // GET status
@@ -162,7 +162,7 @@ EaeCarrier.prototype._setupSwiftConfig = function () {
 EaeCarrier.prototype._setupCarrierController = function(){
     let _this = this;
     _this.carrierController = new CarrierController(_this.swiftStorageConfig);
-    _this.carrierController.setCollection(_this.db.collection(Constants.EAE_COLLECTION_CARRIER));
+    _this.carrierController.setCollection(_this.db.collection(_this.config.eaeCarrierCollection));
 };
 
 /**
